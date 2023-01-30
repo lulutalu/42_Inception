@@ -14,7 +14,7 @@
 
 <div align="center"><b>/!\ All images must be home-made, no images coming from DockerHub /!\</b></div>
 
-What to set-up :
+## What to set-up :
 * A Docker container containing **NGINX** with TLSv1.2 or TLSv1.3
 * A Docker container containing **WordPress** and **php-fpm** (installed and configured) without NGINX
 * A Docker container containing **MariaDB** without NGINX
@@ -22,9 +22,8 @@ What to set-up :
 * A volume containing the _WordPress website files_
 * A docker-network that establishes a connection between all the containers
 
-In case of a crash, everything must restart properly
-
-Some expected behaviors :
+## Some expected behaviors :
+* In case of a crash, everything must restart properly
 * Inside the WordPress database, there must be two users, one of them being the Admin.
 * The domain name will point to the local IP address. Domain name muste be login.42.fr
 * Usage of environment variables, the use of .env file is strongly recommended
