@@ -28,3 +28,14 @@
 * The domain name will point to the local IP address. Domain name muste be login.42.fr
 * Usage of environment variables, the use of .env file is strongly recommended
 * The NGINX container must be the only entrypoint into the infrastructure via port 443 only
+
+## Examples
+
+| ![Expected Diagram](img/Diagram-Expected.png) | 
+|:--:| 
+| *Diagram of the expected result* |
+
+| ![Expected files](img/Expected-Files.png) | 
+|:--:| 
+| *Example of expected directory structure* |
+
