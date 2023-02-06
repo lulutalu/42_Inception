@@ -60,13 +60,13 @@ data even if the container unvoluntarily shutdown.
 ```bash
 docker volume create [OPTIONS] [NAME]		# Create a volume
 docker volume [OPTIONS] name			# Access information of the volume (json file)
-docker volume ls [OPTIONS]				# List of all created volumes
-docker volume prune						# Remove all unused volumes
-docker volume rm 						# Remove one or more volumes
+docker volume ls [OPTIONS]			# List of all created volumes
+docker volume prune				# Remove all unused volumes
+docker volume rm 				# Remove one or more volumes
 ```
 
-Here is an example of creation and mouting of a volume :
+Here is an example of creation and mounting of a volume :
 ```bash
 docker volume create myOwnDB
-docker run -d --mount type=volume,src=myOwnDB,target=database/myOwn *name of container*
+docker run -d --mount type=volume,src=myOwnDB,target=database/myOwn "name_of_image"
 ```
