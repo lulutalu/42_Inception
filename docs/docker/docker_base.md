@@ -70,3 +70,7 @@ Here is an example of creation and mounting of a volume :
 docker volume create myOwnDB
 docker run -d --mount type=volume,src=myOwnDB,target=database/myOwn "name_of_image"
 ```
+
+for more [info](https://docs.docker.com/storage/volumes/)
+
+- [**NEXT**](dockerfile.md)
