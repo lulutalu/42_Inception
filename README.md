@@ -8,5 +8,6 @@ Work in Progress
 ```
 
 ## Documentation
-- ### [Mandatory](docs/mandatory/mandatory.md)
-- ### [Docker](docs/docker/docker_base.md)
+- [1. Mandatory](docs/mandatory/mandatory.md)
+- [2. Docker](docs/docker/docker_base.md)
+ - [2.1 Dockerfile](docs/docker/dockerfile.md)
