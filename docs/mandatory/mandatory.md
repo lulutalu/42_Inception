@@ -39,6 +39,4 @@
 |:--:| 
 | *Example of expected directory structure* |
 
-<p align="center">
 - ## [**NEXT**](../docker/docker_base.md)
-</p>
