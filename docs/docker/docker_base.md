@@ -39,8 +39,8 @@ Those commands are the based one used when deploying simple Container using Dock
 ```bash
 docker rm $(docker ps -q)		# Remove all the containers. (The containers need to be stopped or use -f to force)
 docker rmi $(docker images -qa)		# Remove all the images
-docker run -d		# The '-d' option stands for 'detach'. This means that the container will run in the background
-docker run -p		# The '-p' option stands for 'publish'. This reserve a port of the host machine to the container
-docker run --rm		# Automatically remove the container when it exits
-docker run --name		# Let you choose the name of your container
+docker run -d					# The '-d' option stands for 'detach'. This means that the container will run in the background
+docker run -p					# The '-p' option stands for 'publish'. This reserve a port of the host machine to the container
+docker run --rm					# Automatically remove the container when it exits
+docker run --name				# Let you choose the name of your container
 ```
