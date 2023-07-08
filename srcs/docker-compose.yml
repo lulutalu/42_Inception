@@ -1,36 +1,57 @@
+# ----------------------------------------------- # 
+
 services:
-  mysql:
-    image: mariadb
-      #volumes: 
-      #- /data/mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
-      MYSQL_DATABASE: db_name
-      MYSQL_USER: user_name
-      MYSQL_PASSWORD: user_pass
-    restart: always
+
+  mariadb:
+
+    build: requirements/mariadb
+    container_name: mariadb
+    restart: on-failure
+    env_file: .env
+    networks:
+      - inception
+    volumes:
+      - database-data:/var/lib/mysql
+
+# ---------------------------------------------- #
+
+  nginx:
+
+    build: requirements/nginx
+    container_name: nginx
+    restart: on-failure
+    depends_on: 
+      - wordpress
+    env_file: .env
+    networks:
+      - inception
+    ports: 
+      - 443:443
+    volumes:
+      - wordpress-data:/var/www/wordpress:ro
+
+# ----------------------------------------------- #
+
 
   wordpress:
-    image: wordpress:php7.3-fpm-alpine
-      #volumes:
-      #- /data/html:/var/www/html
-    depends_on:
-      - mysql
-    environment:
-      WORDPRESS_DB_HOST: mysql
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
-      WORDPRESS_DB_NAME: db_name
-      WORDPRESS_DB_USER: user_name
-      WORDPRESS_DB_PASSWORD: user_pass
-      WORPRESS_TABLE_PREFIX: wp_
-    links:
-      - mysql
-    restart: always
+    build: requirements/wordpress
+    container_name: wordpress
+    restart: on-failure
+    depends_on: 
+      - mariadb
+    env_file: .env
+    networks:
+      - inception
+    volumes:
+      - wordpress-data:/var/www/wordpress
 
-    nginx:
-      image: nginx:alpine
+# ------------------------------------------- #
 
-      ports:
-        - 8080:80
-      links:
-        - wordpress
+networks:
+  inception:
+
+# ------------------------------------------------ #
+
+volumes:
+  database-data:
+  wordpress-data:
