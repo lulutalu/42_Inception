@@ -42,8 +42,6 @@ services:
     env_file: .env
     networks:
       - inception
-    ports:
-      - 9000:9000
     volumes:
       - wordpress-data:/var/www/wordpress
 
