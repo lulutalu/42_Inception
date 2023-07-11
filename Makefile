@@ -6,7 +6,7 @@
 #    By: lduboulo				    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/27 18:29:51 by lduboulo          #+#    #+#              #
-#    Updated: 2023/07/11 19:15:25 by lduboulo         ###   ########.fr        #
+#    Updated: 2023/07/11 21:04:24 by lduboulo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,6 @@ nginx :
 wordpress :
 	@docker exec -it wordpress ash
 
-re :	stop clean volume clean all
+re :	stop clean volume-clean all
 
 .PHONY : all stop clean volume-clean mariadb nginx wordpress re
