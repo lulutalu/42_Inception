@@ -1,7 +1,5 @@
 FROM alpine:3.17
 
-ENV DOMAIN_NAME=localhost
-
 RUN apk add --update nginx \
 		&& apk add openssl
 
