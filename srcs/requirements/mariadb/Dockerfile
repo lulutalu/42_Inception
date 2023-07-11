@@ -8,9 +8,6 @@ ADD ./conf/mariadb_server.conf /etc/my.cnf.d/mariadb-server.cnf
 
 ENTRYPOINT ./mariadb_config.sh
 
-#ENV DB_ADMINPASS=test
-#ENV DB_USER=lduboulo
-#ENV DB_PASS=123Soleil
-#ENV DB_NAME=inception
+VOLUME /var/lib/mysql
 
-#EXPOSE 3306
+EXPOSE 3306

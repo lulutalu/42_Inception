@@ -43,11 +43,11 @@ TSEP	= ${SEP}=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=${RESE
 
 all:
 	@printf "\n${GREEN}Starting setup of Inception docker${RESET}\n"
-	@docker-compose up -f -d ${SRCS_DIR}${SRCS_FILES} --build
+	@docker-compose -f ${SRCS_DIR}${SRCS_FILES} up --build -d
 	@printf "${GREEN}Docker started !${RESET} ✅\n"
 
 stop :
-	@docker-compose down
+	@docker-compose -f ${SRCS_DIR}${SRCS_FILES} down
 	@printf "${RED} 🧹 Docker stopped${RESET} ❌\n"
 
 clean :
@@ -55,19 +55,18 @@ clean :
 	@printf "${RED} 🧹 Docker images deleted${RESET} ❌\n"
 
 volume-clean :
-	@${RM} /home/lduboulo/data/*
-	@${RM} /home/lduboulo/data/wordpress/*
-	@${RM} /home/lduboulo/data/mariadb/*
+	@docker volume rm srcs_wordpress-data
+	@docker volume rm srcs_database-data
 	@printf "${RED} 🧹 Docker volumes's files deleted${RESET} ❌\n"
 
 mariadb :
-	@docker exec --it mariadb ash
+	@docker exec -it mariadb ash
 
 nginx :
-	@docker exec --it nginx ash
+	@docker exec -it nginx ash
 
 wordpress :
-	@docker exec --it wordpress ash
+	@docker exec -it wordpress ash
 
 re :	stop clean volume clean all
 

@@ -55,13 +55,13 @@ networks:
 volumes:
   database-data:
     driver: local
-    driver-opts:
+    driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/lduboulo/data/mariadb'
+      device: '/home/lduboulo/data/mariadb/'
   wordpress-data:
     driver: local
-    driver-opts:
+    driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/lduboulo/data/wordpress'
+      device: '/home/lduboulo/data/wordpress/'
