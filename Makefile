@@ -6,7 +6,7 @@
 #    By: lduboulo				    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/27 18:29:51 by lduboulo          #+#    #+#              #
-#    Updated: 2023/07/11 21:04:24 by lduboulo         ###   ########.fr        #
+#    Updated: 2023/07/12 18:33:16 by lduboulo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ MAKELIB	= ${MAKE} -C
 CC	= gcc
 AR	= ar rcs
 MKDIR	= mkdir -p
-RM	= rm -f
+RM	= rm -rf
 
 TSEP	= ${SEP}=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=${RESET}
 
@@ -51,13 +51,17 @@ stop :
 	@printf "${RED} 🧹 Docker stopped${RESET} ❌\n"
 
 clean :
-	@docker system prune -a
+	@docker volume rm srcs_wordpress-data
+	@docker volume rm srcs_database-data
 	@printf "${RED} 🧹 Docker images deleted${RESET} ❌\n"
 
 volume-clean :
-	@docker volume rm srcs_wordpress-data
-	@docker volume rm srcs_database-data
+	@${RM} /home/lduboulo/data/mariadb/*
+	@${RM} /home/lduboulo/data/wordpress/*
 	@printf "${RED} 🧹 Docker volumes's files deleted${RESET} ❌\n"
+
+logs :
+	@docker-compose -f ${SRCS_DIR}${SRCS_FILES} logs
 
 mariadb :
 	@docker exec -it mariadb ash
@@ -70,4 +74,4 @@ wordpress :
 
 re :	stop clean volume-clean all
 
-.PHONY : all stop clean volume-clean mariadb nginx wordpress re
+.PHONY : all stop clean volume-clean mariadb nginx wordpress re logs
