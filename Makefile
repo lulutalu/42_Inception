@@ -6,7 +6,7 @@
 #    By: lduboulo				    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/27 18:29:51 by lduboulo          #+#    #+#              #
-#    Updated: 2023/07/12 18:33:16 by lduboulo         ###   ########.fr        #
+#    Updated: 2023/07/12 18:34:28 by lduboulo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,8 +56,8 @@ clean :
 	@printf "${RED} 🧹 Docker images deleted${RESET} ❌\n"
 
 volume-clean :
-	@${RM} /home/lduboulo/data/mariadb/*
-	@${RM} /home/lduboulo/data/wordpress/*
+	@sudo ${RM} /home/lduboulo/data/mariadb/*
+	@sudo ${RM} /home/lduboulo/data/wordpress/*
 	@printf "${RED} 🧹 Docker volumes's files deleted${RESET} ❌\n"
 
 logs :
